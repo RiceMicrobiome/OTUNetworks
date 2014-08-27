@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/Library/Frameworks/Python.framework/Versions/2.7/bin/python
 
 __author__ = "Joe Edwards"
 __version__ = "1.0.0"
@@ -52,8 +52,8 @@ def optLoad():
 		elif o == '-o':
 			output_file = a
 		elif o == '-m':
-			n = a.lower()
-
+			m = a.lower()
+			method_check(m)
 		elif o == '-u':
 			print script_info['usage']
 			sys.exit()
@@ -68,4 +68,31 @@ def optLoad():
 		print '[ERROR] Please include an input file!'
 		print script_info['usage']
 		raise Exception()
-	return(otu_file, output_file, n, print_var)
+	return(otu_file, output_file, m, optimize)
+
+def method_check(m):
+	accepted = {'pearson': 1, 'spearman': 1, 'kendall' : 1}
+	if m in accepted:
+		return()
+	else:
+		print "[ERROR] Please use an acceptable correlation method."
+		print script_info['usage']
+
+#def correlate
+
+def main():
+	otu_file, output_file, m, optimize = optLoad()
+	otu_tab = pd.read_table(otu_file, sep = "\t", index_col = 0)
+	otu_corr = otu_tab.transpose().corr(method = m)
+	"""
+	Going to end it here for now.  I'm finding out that I have to do everything in R because
+	I need to use an R package to actually do the dynamic tree cutting. I can't figure out how to 
+	talk to R via Python to do this at the moment.
+	"""
+	## Switch to Using R
+
+
+main()
+
+
+
