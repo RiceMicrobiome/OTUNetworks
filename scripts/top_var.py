@@ -49,7 +49,7 @@ def optLoad():
 		if o == '-i':
 			otu_file = a
 		elif o == '-o':
-			out_file = a
+			output_file = a
 		elif o == '-n':
 			n = int(a)
 		elif o == '-u':
