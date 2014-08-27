@@ -2,13 +2,13 @@
 
 __author__ = "Joe Edwards"
 __version__ = "1.0.0"
+__created__ = "08-21-2014"
+__modified__ = "08-28-2014"
 __maintainer__ = "Joe Edwards"
 __email__ = "edwards@ucdavis.edu"
 
 import sys
 import getopt 
-import re
-import scipy.stats as stats
 from numpy import var as V
 
 script_info = {}
